@@ -1,0 +1,41 @@
+// install: go get github.com/99designs/gqlgen
+// set up: run these comands:
+    1) printf '// +build tools\npackage tools\nimport (_ "github.com/99designs/gqlgen"\n _ "github.com/99designs/gqlgen/graphql/introspection")' | gofmt > tools.go
+    2) go mod tidy
+    3) go run github.com/99designs/gqlgen init
+    4) go mod tidy
+    5) go run server.go
+// schema:
+    - in schema.graphqls : we need to define our scheema. Example :
+
+        type Book {
+            _id: ID!
+            TITLE: String!
+            AUTHOR: String!
+            PRICE: int!
+        }
+        type Query {
+            books: [Book!]!
+            book(id: ID!): Book!
+        }
+        type Mutation {
+            createBook(input: createBookInput!): Book!
+            updateBook(id: ID!, input: updateBookInput!): Book!
+            deleteBook(id: ID!): deleteBookResponse
+        }
+        # inputs (used in Mutation)
+        input createBookInput {
+            TITLE: String!
+            AUTHOR: String!
+            PRICE: int!
+        }
+        input updateBookInput {
+            TITLE: String
+            AUTHOR: String
+            PRICE: int
+        }
+        type deleteBookResponse {
+            deleteBookID: String!
+        }
+    - to generate the resolvers and other things we need to run this command:
+         go run github.com/99designs/gqlgen generate
