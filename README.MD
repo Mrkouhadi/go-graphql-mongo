@@ -1,6 +1,6 @@
 # DESCRIPTION:
 
-- A guideline of how to use graphql and golang with the help of this package [gqlgen](https://www.github.com/99designs/gqlgen)
+- A guideline of how to use graphql, golang, and [gqlgen](https://www.github.com/99designs/gqlgen)
 
 # Instructions
 
