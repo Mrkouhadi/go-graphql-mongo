@@ -23,7 +23,8 @@
                     }
             `;
             fetch("http://localhost:8080/",{
-                method:"POST",
+                method:"POST",    
+                mode: "no-cors", // no-cors, *cors, same-origin
                 headers:{
                     "Content-Type":"application/json",
                     "Accept":"application/json"
@@ -31,8 +32,8 @@
                 body:JSON.stringify({
                     query
                 })
-            }).then(response =>{
-                return response.json();
+            }).then(response => {
+                return response.json()
             }).then(data => {
                 console.log(data)
             })
