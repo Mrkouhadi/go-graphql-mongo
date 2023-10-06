@@ -12,7 +12,8 @@
 2. `go mod tidy`
 3. `go run github.com/99designs/gqlgen init`
 4. `go mod tidy`
-5. `go run server.go`
+5. `go run github.com/99designs/gqlgen generate`
+6. `go run server.go`
 
 ## sample of Queries:
 
