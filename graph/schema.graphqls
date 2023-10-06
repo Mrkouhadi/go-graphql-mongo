@@ -29,5 +29,5 @@ input updateBookInput {
   PRICE: Int
 }
 type deleteBookResponse {
-  deleteBookID: String!
+  deletedBookID: String!
 }

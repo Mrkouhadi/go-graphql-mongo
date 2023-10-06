@@ -8,13 +8,13 @@ import (
 	"embed"
 	"errors"
 	"fmt"
+	"go-gql-mongo/graph/model"
 	"strconv"
 	"sync"
 	"sync/atomic"
 
 	"github.com/99designs/gqlgen/graphql"
 	"github.com/99designs/gqlgen/graphql/introspection"
-	"github.com/mrkouhadi/go-graphql-mongo/graph/model"
 	gqlparser "github.com/vektah/gqlparser/v2"
 	"github.com/vektah/gqlparser/v2/ast"
 )
@@ -315,7 +315,7 @@ func (ec *executionContext) field_Mutation_createBook_args(ctx context.Context, 
 	var arg0 model.CreateBookInput
 	if tmp, ok := rawArgs["input"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("input"))
-		arg0, err = ec.unmarshalNcreateBookInput2githubᚗcomᚋmrkouhadiᚋgoᚑgraphqlᚑmongoᚋgraphᚋmodelᚐCreateBookInput(ctx, tmp)
+		arg0, err = ec.unmarshalNcreateBookInput2goᚑgqlᚑmongoᚋgraphᚋmodelᚐCreateBookInput(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
@@ -354,7 +354,7 @@ func (ec *executionContext) field_Mutation_updateBook_args(ctx context.Context, 
 	var arg1 model.UpdateBookInput
 	if tmp, ok := rawArgs["input"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("input"))
-		arg1, err = ec.unmarshalNupdateBookInput2githubᚗcomᚋmrkouhadiᚋgoᚑgraphqlᚑmongoᚋgraphᚋmodelᚐUpdateBookInput(ctx, tmp)
+		arg1, err = ec.unmarshalNupdateBookInput2goᚑgqlᚑmongoᚋgraphᚋmodelᚐUpdateBookInput(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
@@ -635,7 +635,7 @@ func (ec *executionContext) _Mutation_createBook(ctx context.Context, field grap
 	}
 	res := resTmp.(*model.Book)
 	fc.Result = res
-	return ec.marshalNBook2ᚖgithubᚗcomᚋmrkouhadiᚋgoᚑgraphqlᚑmongoᚋgraphᚋmodelᚐBook(ctx, field.Selections, res)
+	return ec.marshalNBook2ᚖgoᚑgqlᚑmongoᚋgraphᚋmodelᚐBook(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) fieldContext_Mutation_createBook(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
@@ -700,7 +700,7 @@ func (ec *executionContext) _Mutation_updateBook(ctx context.Context, field grap
 	}
 	res := resTmp.(*model.Book)
 	fc.Result = res
-	return ec.marshalNBook2ᚖgithubᚗcomᚋmrkouhadiᚋgoᚑgraphqlᚑmongoᚋgraphᚋmodelᚐBook(ctx, field.Selections, res)
+	return ec.marshalNBook2ᚖgoᚑgqlᚑmongoᚋgraphᚋmodelᚐBook(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) fieldContext_Mutation_updateBook(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
@@ -762,7 +762,7 @@ func (ec *executionContext) _Mutation_deleteBook(ctx context.Context, field grap
 	}
 	res := resTmp.(*model.DeleteBookResponse)
 	fc.Result = res
-	return ec.marshalOdeleteBookResponse2ᚖgithubᚗcomᚋmrkouhadiᚋgoᚑgraphqlᚑmongoᚋgraphᚋmodelᚐDeleteBookResponse(ctx, field.Selections, res)
+	return ec.marshalOdeleteBookResponse2ᚖgoᚑgqlᚑmongoᚋgraphᚋmodelᚐDeleteBookResponse(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) fieldContext_Mutation_deleteBook(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
@@ -821,7 +821,7 @@ func (ec *executionContext) _Query_books(ctx context.Context, field graphql.Coll
 	}
 	res := resTmp.([]*model.Book)
 	fc.Result = res
-	return ec.marshalNBook2ᚕᚖgithubᚗcomᚋmrkouhadiᚋgoᚑgraphqlᚑmongoᚋgraphᚋmodelᚐBookᚄ(ctx, field.Selections, res)
+	return ec.marshalNBook2ᚕᚖgoᚑgqlᚑmongoᚋgraphᚋmodelᚐBookᚄ(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) fieldContext_Query_books(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
@@ -875,7 +875,7 @@ func (ec *executionContext) _Query_book(ctx context.Context, field graphql.Colle
 	}
 	res := resTmp.(*model.Book)
 	fc.Result = res
-	return ec.marshalNBook2ᚖgithubᚗcomᚋmrkouhadiᚋgoᚑgraphqlᚑmongoᚋgraphᚋmodelᚐBook(ctx, field.Selections, res)
+	return ec.marshalNBook2ᚖgoᚑgqlᚑmongoᚋgraphᚋmodelᚐBook(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) fieldContext_Query_book(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
@@ -3533,11 +3533,11 @@ func (ec *executionContext) _deleteBookResponse(ctx context.Context, sel ast.Sel
 
 // region    ***************************** type.gotpl *****************************
 
-func (ec *executionContext) marshalNBook2githubᚗcomᚋmrkouhadiᚋgoᚑgraphqlᚑmongoᚋgraphᚋmodelᚐBook(ctx context.Context, sel ast.SelectionSet, v model.Book) graphql.Marshaler {
+func (ec *executionContext) marshalNBook2goᚑgqlᚑmongoᚋgraphᚋmodelᚐBook(ctx context.Context, sel ast.SelectionSet, v model.Book) graphql.Marshaler {
 	return ec._Book(ctx, sel, &v)
 }
 
-func (ec *executionContext) marshalNBook2ᚕᚖgithubᚗcomᚋmrkouhadiᚋgoᚑgraphqlᚑmongoᚋgraphᚋmodelᚐBookᚄ(ctx context.Context, sel ast.SelectionSet, v []*model.Book) graphql.Marshaler {
+func (ec *executionContext) marshalNBook2ᚕᚖgoᚑgqlᚑmongoᚋgraphᚋmodelᚐBookᚄ(ctx context.Context, sel ast.SelectionSet, v []*model.Book) graphql.Marshaler {
 	ret := make(graphql.Array, len(v))
 	var wg sync.WaitGroup
 	isLen1 := len(v) == 1
@@ -3561,7 +3561,7 @@ func (ec *executionContext) marshalNBook2ᚕᚖgithubᚗcomᚋmrkouhadiᚋgoᚑg
 			if !isLen1 {
 				defer wg.Done()
 			}
-			ret[i] = ec.marshalNBook2ᚖgithubᚗcomᚋmrkouhadiᚋgoᚑgraphqlᚑmongoᚋgraphᚋmodelᚐBook(ctx, sel, v[i])
+			ret[i] = ec.marshalNBook2ᚖgoᚑgqlᚑmongoᚋgraphᚋmodelᚐBook(ctx, sel, v[i])
 		}
 		if isLen1 {
 			f(i)
@@ -3581,7 +3581,7 @@ func (ec *executionContext) marshalNBook2ᚕᚖgithubᚗcomᚋmrkouhadiᚋgoᚑg
 	return ret
 }
 
-func (ec *executionContext) marshalNBook2ᚖgithubᚗcomᚋmrkouhadiᚋgoᚑgraphqlᚑmongoᚋgraphᚋmodelᚐBook(ctx context.Context, sel ast.SelectionSet, v *model.Book) graphql.Marshaler {
+func (ec *executionContext) marshalNBook2ᚖgoᚑgqlᚑmongoᚋgraphᚋmodelᚐBook(ctx context.Context, sel ast.SelectionSet, v *model.Book) graphql.Marshaler {
 	if v == nil {
 		if !graphql.HasFieldError(ctx, graphql.GetFieldContext(ctx)) {
 			ec.Errorf(ctx, "the requested element is null which the schema does not allow")
@@ -3904,12 +3904,12 @@ func (ec *executionContext) marshalN__TypeKind2string(ctx context.Context, sel a
 	return res
 }
 
-func (ec *executionContext) unmarshalNcreateBookInput2githubᚗcomᚋmrkouhadiᚋgoᚑgraphqlᚑmongoᚋgraphᚋmodelᚐCreateBookInput(ctx context.Context, v interface{}) (model.CreateBookInput, error) {
+func (ec *executionContext) unmarshalNcreateBookInput2goᚑgqlᚑmongoᚋgraphᚋmodelᚐCreateBookInput(ctx context.Context, v interface{}) (model.CreateBookInput, error) {
 	res, err := ec.unmarshalInputcreateBookInput(ctx, v)
 	return res, graphql.ErrorOnPath(ctx, err)
 }
 
-func (ec *executionContext) unmarshalNupdateBookInput2githubᚗcomᚋmrkouhadiᚋgoᚑgraphqlᚑmongoᚋgraphᚋmodelᚐUpdateBookInput(ctx context.Context, v interface{}) (model.UpdateBookInput, error) {
+func (ec *executionContext) unmarshalNupdateBookInput2goᚑgqlᚑmongoᚋgraphᚋmodelᚐUpdateBookInput(ctx context.Context, v interface{}) (model.UpdateBookInput, error) {
 	res, err := ec.unmarshalInputupdateBookInput(ctx, v)
 	return res, graphql.ErrorOnPath(ctx, err)
 }
@@ -4174,7 +4174,7 @@ func (ec *executionContext) marshalO__Type2ᚖgithubᚗcomᚋ99designsᚋgqlgen�
 	return ec.___Type(ctx, sel, v)
 }
 
-func (ec *executionContext) marshalOdeleteBookResponse2ᚖgithubᚗcomᚋmrkouhadiᚋgoᚑgraphqlᚑmongoᚋgraphᚋmodelᚐDeleteBookResponse(ctx context.Context, sel ast.SelectionSet, v *model.DeleteBookResponse) graphql.Marshaler {
+func (ec *executionContext) marshalOdeleteBookResponse2ᚖgoᚑgqlᚑmongoᚋgraphᚋmodelᚐDeleteBookResponse(ctx context.Context, sel ast.SelectionSet, v *model.DeleteBookResponse) graphql.Marshaler {
 	if v == nil {
 		return graphql.Null
 	}

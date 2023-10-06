@@ -1,11 +1,9 @@
-module github.com/mrkouhadi/go-graphql-mongo
+module go-gql-mongo
 
 go 1.20
 
 require (
 	github.com/99designs/gqlgen v0.17.38
-	github.com/alexedwards/scs/v2 v2.5.1
-	github.com/go-chi/chi/v5 v5.0.10
 	github.com/vektah/gqlparser/v2 v2.5.10
 	go.mongodb.org/mongo-driver v1.12.1
 )

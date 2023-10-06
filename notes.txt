@@ -35,7 +35,115 @@
             PRICE: int
         }
         type deleteBookResponse {
-            deleteBookID: String!
+            deletedBookID: String!
         }
     - to generate the resolvers and other things we need to run this command:
          go run github.com/99designs/gqlgen generate
+// schema.resolvers.go
+    var db = database.ConnectToMongoDb()
+    func (r *mutationResolver) CreateBook(ctx context.Context, bookInfo model.CreateBookInput) (*model.Book, error) {
+        return db.Createbook(bookInfo), nil
+    }
+// mongodb database file
+    var url string = "mongodb://localhost:27017"
+
+    type MongoDB struct {
+        Client *mongo.Client
+    }
+    func ConnectToMongoDb() *MongoDB {
+        ctx, cancel := context.WithTimeout(context.Background(), 3*time.Second)
+        defer cancel()
+
+        clientOptions := options.Client().ApplyURI(url)
+        client, err := mongo.Connect(ctx, clientOptions)
+        if err != nil {
+            log.Fatal(err)
+        }
+        // CHECK CONNECTION
+        err = client.Ping(ctx, nil)
+        if err != nil {
+            log.Fatal(err)
+        }
+        fmt.Println(" --------------- App has been Connected to MongoDB!(Graphql)")
+        return &MongoDB{Client: client}
+    }
+    func (db *MongoDB) Createbook(input model.CreateBookInput) *model.Book {
+        ctx, cancel := context.WithTimeout(context.Background(), 3*time.Second)
+	    defer cancel()
+        booksCollection := db.Client.Database("library-db").Collection("newbooks")
+        insertResult, err := booksCollection.InsertOne(ctx, b)
+        if err != nil {
+            log.Fatal(err)
+        }
+        return &insertResult
+    }
+// run the server
+    go run server.go (then go to http://localhost:8080/) 
+
+//////////////////////////******run the queries*****///////////////////
+//////// create a book:
+    mutation CreateBook($input: createBookInput!){
+    createBook(input:$input){
+        _id 
+        TITLE 
+        AUTHOR 
+        PRICE  
+        } 
+    }
+    // variables:
+    { 
+        "input": { 
+            "TITLE":  "The first Book", 
+            "AUTHOR":  "Bryan Kouhadi", 
+            "PRICE": 888
+        } 
+    }
+///////// get all books
+    query GetBooks{
+        books{
+            _id
+            TITLE
+            AUTHOR
+            PRICE
+        }
+    }
+//////// get a single book by ID
+    query GetBookByID($id: ID!){
+        book(id:$id){
+            _id
+            TITLE
+            AUTHOR
+            PRICE
+        }
+    }
+    // variable:
+    {
+        "id": "651f8f0b35b8d3006fd07ec7"
+    }
+
+//////// UPDATE A Book (updating only the price)
+    mutation UpdateJob($id: ID!,$input: updateBookInput!){
+        updateBook(id:$id,input:$input){
+            _id 
+            TITLE
+            AUTHOR
+            PRICE
+        }
+    }
+    // variables:
+    { 
+        "id": "651f8f0b35b8d3006fd07ec7", 
+        "input": { 
+            "PRICE": 88888 
+        }
+    }
+////// delete a book by id
+    mutation DeleteQuery($id: ID!) { 
+        deleteBook(id:$id){
+            deletedBookID 
+        } 
+    }
+    // variables:
+    {
+        "id":"651f8f0b35b8d3006fd07ec7"
+    }
