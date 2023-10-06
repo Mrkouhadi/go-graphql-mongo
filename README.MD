@@ -12,8 +12,10 @@
 2. `go mod tidy`
 3. `go run github.com/99designs/gqlgen init`
 4. `go mod tidy`
-5. `go run github.com/99designs/gqlgen generate`
-6. `go run server.go`
+5. ------ making changes in schema.graphqls (defining Queries and types)
+6. `go run github.com/99designs/gqlgen generate`
+7. ------ setting up schema.resolvers.go methods (pulling data from the database)
+8. `go run server.go`
 
 ## sample of Queries:
 
