@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Get all books ||  go + graphql + js</title>
 </head>
 <body>
     
@@ -22,9 +22,8 @@
                         }
                     }
             `;
-            fetch("http://localhost:8080/",{
-                method:"POST",    
-                mode: "no-cors", // no-cors, *cors, same-origin
+            fetch("http://localhost:8080/query",{
+                method:"POST", 
                 headers:{
                     "Content-Type":"application/json",
                     "Accept":"application/json"
